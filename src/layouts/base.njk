@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title or site.ui.title }}</title>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url}}">
   <link rel="icon" href="{{ '/assets/icons/favicon.ico' | url }}" sizes="any">
 </head>
 <body>
   <header class="container">
-    <h1><a href="/">{{ site.ui.title }}</a></h1>
+    <h1><a href="{{ '/' | url }}">{{ site.ui.title }}</a></h1>
     <nav>
-      <a href="/">Home</a>
+      <a href="{{ '/' | url }}">Home</a>
       {% for p in collections.navPages %}
-        <a href="{{ p.url }}">{{ p.data.title or p.fileSlug }}</a>
+        <a href="{{ p.url | url }}">{{ p.data.title or p.fileSlug }}</a>
       {% endfor %}
     </nav>
     <hr>
