@@ -1,0 +1,55 @@
+---
+layout: base.njk
+permalink: "/peering/index.html"
+title: Peering
+nav_order: 1
+---
+<h2>Peering</h2>
+
+<p>{{ site.peering.policy | md | safe }}</p>
+
+<h3>Requirements</h3>
+<ul>
+  {% for r in site.peering.require %}<li>{{ r }}</li>{% endfor %}
+</ul>
+
+{% if site.peering.optional and (site.peering.optional | length) %}
+<h3>Optional</h3>
+<ul>
+  {% for r in site.peering.optional %}<li>{{ r }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+<h3>Session Parameters</h3>
+<table class="table">
+  <tbody>
+    <tr><th>ASN</th><td>AS{{ site.asn }}</td></tr>
+    <tr><th>Max-Prefix (v4/v6)</th><td>{{ site.peering.max_prefix.v4 }} / {{ site.peering.max_prefix.v6 }}</td></tr>
+    <tr><th>MD5</th><td>{{ 'Required' if site.peering.md5 else 'Not required' }}</td></tr>
+    <tr><th>Multihop</th><td>{{ 'Yes' if site.peering.multihop else 'No' }}</td></tr>
+  </tbody>
+</table>
+
+{% if site.ixps | length %}
+<h3>IXPs</h3>
+<table class="table">
+  <thead><tr><th>Name</th><th>IPv4</th><th>IPv6</th></tr></thead>
+  <tbody>
+    {% for x in site.ixps %}
+      <tr>
+        <td>{{ x.name }}</td>
+        <td><code>{{ x.peering_lan_v4 or '-' }}</code></td>
+        <td><code>{{ x.peering_lan_v6 or '-' }}</code></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<h3>IRR / RPKI</h3>
+<ul>
+  <li>AS-SET: <code>{{ site.irrd_objects.as_set }}</code></li>
+  <li>Maintainer: <code>{{ site.irrd_objects.maintainer }}</code></li>
+</ul>
+
+<p>Peering requests: <a href="mailto:{{ site.email.peering }}">{{ site.email.peering }}</a></p>

@@ -1,0 +1,13 @@
+{
+  "name": "as396015-website",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --port=8080 --quiet",
+    "build": "npx @11ty/eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

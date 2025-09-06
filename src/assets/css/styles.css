@@ -1,0 +1,83 @@
+:root {
+    --max: 880px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+nav {
+    margin: .25rem 0;
+}
+
+nav a {
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.muted {
+    color: #555;
+}
+
+pre,
+code {
+    background: #f6f8fa;
+    padding: .2rem .4rem;
+    border-radius: 4px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: .5rem;
+}
+
+.table th {
+    text-align: left;
+    background: #fafafa;
+}
+
+.badge {
+    display: inline-block;
+    padding: .1rem .4rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    font-size: .8rem;
+}
+
+header.container {
+    padding-bottom: .25rem;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header .muted {
+    margin: .25rem 0 0;
+}
+
+hr {
+    margin: .25rem 0;
+}
+
+main.container {
+    padding-top: .25rem;
+}

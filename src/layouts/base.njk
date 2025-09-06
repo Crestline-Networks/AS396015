@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or site.ui.title }}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="{{ '/assets/icons/favicon.ico' | url }}" sizes="any">
+</head>
+<body>
+  <header class="container">
+    <h1><a href="/">{{ site.ui.title }}</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      {% for p in collections.navPages %}
+        <a href="{{ p.url }}">{{ p.data.title or p.fileSlug }}</a>
+      {% endfor %}
+    </nav>
+    <hr>
+  </header>
+
+  <main class="container">
+    {{ content | safe }}
+  </main>
+
+  <footer class="container">
+    <hr>
+    <small>
+      ©{{ year }} AS{{ site.asn }} ·
+      <a href="mailto:{{ site.email.noc }}">NOC</a> ·
+      <a href="mailto:{{ site.email.peering }}">Peering</a> ·
+      <a href="mailto:{{ site.email.abuse }}">Abuse</a>
+    </small>
+  </footer>
+</body>
+</html>

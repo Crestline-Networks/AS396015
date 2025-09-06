@@ -1,0 +1,73 @@
+{
+  "asn": 396015,
+  "as_name": "Crestline Networks",
+  "org": "Crestline Networks",
+  "rir": "ARIN",
+  "website": "https://as396015.com",
+  "email": {
+    "noc": "noc@as396015.com",
+    "peering": "peering@as396015.com",
+    "abuse": "abuse@as396015.com",
+    "hostmaster": "hostmaster@as396015.com"
+  },
+  "peeringdb": "https://www.peeringdb.com/asn/396015",
+  "irrd_objects": {
+    "as_set": "AS-CRESTLINE",
+    "maintainer": "MNT-JC-763"
+  },
+  "prefixes_v4": [],
+  "prefixes_v6": [],
+  "locations": [
+    {
+      "name": "Primary PoP",
+      "city": "Boston",
+      "region": "MA",
+      "country": "US"
+    },
+    {
+      "name": "VPC East",
+      "city": "New York",
+      "region": "NY",
+      "country": "US"
+    },
+    {
+      "name": "VPC Central",
+      "city": "Chicago",
+      "region": "IL",
+      "country": "US"
+    }
+  ],
+  "__ixps_example": [
+    {
+      "name": "IX-NewYork",
+      "peering_lan_v4": "198.32.160.10",
+      "peering_lan_v6": "2001:504:1::a"
+    }
+  ],
+  "ixps": [],
+  "peering": {
+    "policy": "This document defines how to connect with Crestline Networks (AS396015), specifying requirements and the factors that influence peering decisions with third parties.\n\nCrestline Networks follows a selective, settlement-free peering policy. Crestline Networks peers with other organizations based on:\n\n* Current and projected inter-network traffic volumes.\n\n* The number of locations where both parties are present.\n\n* The presence of mutual benefit for establishing peering.\n\n* The peer’s compliance with our technical and legal requirement\n\n* Crestline Networks reviews this policy periodically and may change it at any time.",
+    "require": [
+      "Maintain a complete and current PeeringDB entry.",
+      "Register all announced prefixes in at least one recognized public IRR.",
+      "Do not advertise our prefixes to any transit provider.",
+      "Announce to us only your own and your customers prefixes.",
+      "Provide NOC contact details.",
+      "Accept that AS20473 may selectively withdraw prefixes on public IXPs to protect service quality.",
+      "Give advance notice of scheduled maintenance.",
+      "RPKI-invalid prefixes will be rejected."
+    ],
+    "optional": [],
+    "max_prefix": {
+      "v4": 50,
+      "v6": 50
+    },
+    "md5": false,
+    "multihop": true,
+    "notes": "Contact peering@ for coordination. ASNs without PeeringDB may be delayed."
+  },
+  "ui": {
+    "title": "Crestline Networks (AS396015)",
+    "footer": " Crestline Networks"
+  }
+}

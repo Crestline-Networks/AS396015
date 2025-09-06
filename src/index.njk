@@ -1,0 +1,37 @@
+---
+layout: base.njk
+permalink: "/index.html"
+---
+<h2>About</h2>
+<p>{{ site.org }} operates Autonomous System <strong>AS{{ site.asn }}</strong> ({{ site.as_name }}) in {{ site.rir }}.
+Find records on <a href="{{ site.peeringdb }}">PeeringDB</a>.</p>
+
+{% if (site.prefixes_v4 and (site.prefixes_v4 | length)) or (site.prefixes_v6 and (site.prefixes_v6 | length)) %}
+<h3>Announcements</h3>
+<ul>
+  {% for p in site.prefixes_v4 %}<li>IPv4: <code>{{ p }}</code></li>{% endfor %}
+  {% for p in site.prefixes_v6 %}<li>IPv6: <code>{{ p }}</code></li>{% endfor %}
+</ul>
+{% endif %}
+
+<h3>Locations</h3>
+<table class="table">
+  <thead><tr><th>Name</th><th>City</th><th>Region</th><th>Country</th></tr></thead>
+  <tbody>
+    {% for l in site.locations %}
+      <tr>
+        <td>{{ l.name }}</td>
+        <td>{{ l.city }}</td>
+        <td>{{ l.region }}</td>
+        <td>{{ l.country }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3>Contacts</h3>
+<ul>
+  <li>NOC: <a href="mailto:{{ site.email.noc }}">{{ site.email.noc }}</a></li>
+  <li>Peering: <a href="mailto:{{ site.email.peering }}">{{ site.email.peering }}</a></li>
+  <li>Abuse: <a href="mailto:{{ site.email.abuse }}">{{ site.email.abuse }}</a></li>
+</ul>
