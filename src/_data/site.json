@@ -16,24 +16,21 @@
     "maintainer": "MNT-JC-763"
   },
   "prefixes_v4": [],
-  "prefixes_v6": [],
+  "prefixes_v6": [
+    "2602:81c:4000::/48",
+    "2602:81c:4001::/48"
+  ],
   "locations": [
     {
-      "name": "Primary PoP",
-      "city": "Boston",
-      "region": "MA",
+      "name": "Vultr EWR",
+      "city": "New Jersey",
+      "region": "NJ",
       "country": "US"
     },
     {
-      "name": "VPC East",
-      "city": "New York",
-      "region": "NY",
-      "country": "US"
-    },
-    {
-      "name": "VPC Central",
-      "city": "Chicago",
-      "region": "IL",
+      "name": "Vultr LAX",
+      "city": "Los Angeles",
+      "region": "CA",
       "country": "US"
     }
   ],
