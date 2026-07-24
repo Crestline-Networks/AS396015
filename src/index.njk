@@ -12,6 +12,19 @@ Find records on <a href="{{ site.peeringdb }}">PeeringDB</a>.</p>
   {% for p in site.prefixes_v4 %}<li>IPv4: <code>{{ p }}</code></li>{% endfor %}
   {% for p in site.prefixes_v6 %}<li>IPv6: <code>{{ p }}</code></li>{% endfor %}
 </ul>
+
+<h3>Routing Architecture</h3>
+<p>{{ site.org }} uses a geographically distributed failover topology. The announcement structure is:</p>
+<ul>
+  <li><strong>Supernet</strong>: <code>2602:81c:4000::/44</code> — announced from both edge locations for failover resilience. If a site's specific prefix is withdrawn, traffic routes to this supernet at the alternative location.</li>
+  <li><strong>Site-specific /48s</strong>:
+    <ul>
+      <li>EWR (New Jersey): <code>2602:81c:4000::/48</code></li>
+      <li>LAX (Los Angeles): <code>2602:81c:4001::/48</code></li>
+    </ul>
+  </li>
+</ul>
+<p>More-specific routes (the /48s) are preferred by default routing. When a site performs maintenance or fails, its /48 can be selectively withdrawn while the supernet remains active, routing traffic through the alternative site.</p>
 {% endif %}
 
 <h3>Locations</h3>
