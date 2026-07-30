@@ -42,6 +42,24 @@ Find records on <a href="{{ site.peeringdb }}">PeeringDB</a>.</p>
   </tbody>
 </table>
 
+{% if site.looking_glass or (site.ripe_atlas and site.ripe_atlas.probes and (site.ripe_atlas.probes | length)) %}
+<h3>Measurement &amp; Diagnostics</h3>
+
+{% if site.looking_glass %}
+<p>A <a href="{{ site.looking_glass.url }}">looking glass</a> (bird-lg-go) is available for live BGP and traceroute queries from our edge routers.
+{% if site.looking_glass.ipv6_only %}It is <strong>IPv6-only by design</strong> — there is deliberately no <code>A</code> record for this service.{% endif %}</p>
+{% endif %}
+
+{% if site.ripe_atlas and site.ripe_atlas.probes and (site.ripe_atlas.probes | length) %}
+<p>We run RIPE Atlas software probes, hosted at our EWR and LAX PoPs, for independent third-party measurement of latency and reachability. Each probe reports from Vultr's (AS20473) address space at that PoP, not from an AS396015-announced prefix.</p>
+<ul>
+  {% for probe in site.ripe_atlas.probes %}
+    <li>{{ probe.site }}: <a href="https://atlas.ripe.net/probes/{{ probe.id }}/">Probe #{{ probe.id }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+
 <h3>Contacts</h3>
 <ul>
   <li>NOC: <a href="mailto:{{ site.email.noc }}">{{ site.email.noc }}</a></li>
